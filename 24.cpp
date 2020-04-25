@@ -26,6 +26,8 @@ LinkNode* rev(LinkNode* head)
         cnt = head;
     }
     cnt->next = pre;
+
+    return cnt;
 }
 
 void print(std::string s, LinkNode* head)
