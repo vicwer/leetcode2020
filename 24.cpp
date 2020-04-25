@@ -3,21 +3,32 @@
 #include <vector>
 #include <string>
 
-typedef struct LinkNode
+template <typename T>
+struct ListNode
 {
-    int val;
-    LinkNode* next;
-    LinkNode(int x) : val(x), next(NULL) {};
-} LinkNode;
+    T val;
+    ListNode* next;
+    ListNode(T x) : val(x), next(NULL) {};
+};
 
-LinkNode* rev(LinkNode* head)
+template <typename T>
+class LinkNode {
+public:
+    T val;
+    LinkNode* next;
+
+    LinkNode(T x) : val(x), next(NULL) {};
+};
+
+template <typename T>
+LinkNode<T>* rev(LinkNode<T>* head)
 {
     if(!head)
     {
         return head;
     }
-    LinkNode* pre = NULL;
-    LinkNode* cnt = head;
+    LinkNode<T>* pre = NULL;
+    LinkNode<T>* cnt = head;
     while(head->next)
     {
         head = head->next;
@@ -30,9 +41,10 @@ LinkNode* rev(LinkNode* head)
     return cnt;
 }
 
-void print(std::string s, LinkNode* head)
+template <typename T>
+void print(std::string s, LinkNode<T>* head)
 {
-    LinkNode* print_head = head;
+    LinkNode<T>* print_head = head;
     std::cout << s;
     while(print_head)
     {
@@ -47,17 +59,17 @@ int main()
     std::vector<std::vector<int> > test_cases = {{}, {1}, {1,2, 3, 4}};
     for(auto test_case : test_cases)
     {
-        LinkNode* node = new LinkNode(0);
-        LinkNode* head = node;
+        LinkNode<int>* node = new LinkNode<int>(0);
+        LinkNode<int>* head = node;
         for(int i = 0; i < test_case.size(); i++)
         {
-            LinkNode* node_tmp = new LinkNode(test_case[i]);
+            LinkNode<int>* node_tmp = new LinkNode<int>(test_case[i]);
             node -> next = node_tmp;
             node = node_tmp;
         }
 
         print("input:", head->next);
-        LinkNode* res =  rev(head->next);
+        LinkNode<int>* res =  rev(head->next);
         print("output:", res);
     }
 
