@@ -82,7 +82,7 @@ int main()
     for(int i = 0; i < list.size(); i+=2)
     {
         BinaryTree* root1 = tree.createTree(list[i]);
-        BinaryTree* root2 = tree.createTree(list[1+1]);
+        BinaryTree* root2 = tree.createTree(list[i+1]);
         std::cout << sameTree(root1, root2) << std::endl;
     }
 
