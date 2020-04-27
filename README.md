@@ -29,4 +29,16 @@
 
 ### 对称树
 
+> [leetcode101](https://leetcode-cn.com/problems/symmetric-tree/)
+
+#### 解题思路
+
 如果根节点都空，则对称；如果两树都非空，则递归判断两树子节点是否对称，若两树都对称且当前节点值相等，则对称；否则，不对称，返回false.
+
+### 二叉树的最大深度
+
+> [leetcode104](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+#### 解题思路
+
+如果当前节点空，返回深度0；否则，返回当前节点子树的最大深度加1.
