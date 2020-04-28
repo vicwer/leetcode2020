@@ -42,3 +42,17 @@
 #### 解题思路
 
 如果当前节点空，返回深度0；否则，返回当前节点子树的最大深度加1.
+
+### 二叉树的层次遍历
+
+> [leetcode102](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+用队列，先将根节点入队，然后遍历队列是否非空，非空则遍历当前节点值，出队，然后判断左右子树是否存在，存在则入队。
+
+### 二叉树的锯齿形层次遍历
+
+> [leetcode103](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+
+#### 解题思路
+
+用队列和栈，先进先出和先进后出的特性，每一层先入栈，栈再入队，然出队，栈内节点遍历出栈；对出栈的根节点，遍历其值，根据层数的奇偶，奇数层的话，先遍历左子树，再遍历右子树，偶数层的话，先遍历右子树，再遍历左子树。
