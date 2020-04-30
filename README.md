@@ -56,3 +56,28 @@
 #### 解题思路
 
 用队列和栈，先进先出和先进后出的特性，每一层先入栈，栈再入队，然出队，栈内节点遍历出栈；对出栈的根节点，遍历其值，根据层数的奇偶，奇数层的话，先遍历左子树，再遍历右子树，偶数层的话，先遍历右子树，再遍历左子树。
+
+### 二叉树的最小深度
+
+> [leetcode111](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+
+#### 解题思路
+
+如果当前节点空，返回深度0；否则，返回当前节点子树的最小深度加1.
+
+### 路径总和
+
+> [leetcode112](https://leetcode-cn.com/problems/path-sum/)
+
+#### 解题思路
+
+若根节点空，返回0；否则，若根节点的左右子树都空，则判断sum-当前val是否为0；递归判断当前根节点左子树或右子树是否满足上述条件。
+
+### 路径总和2
+
+> [leetcode113](https://leetcode-cn.com/problems/path-sum-ii/)
+
+#### 解题思路
+
+初始化两个变量res和cnt_res；如果根节点空，返回res；如果根节点没有左右子树，若当前sum减成0，则将当前val送入cnt_res，并将cnt_res放入res，然后当前val pop，返回res；否则，当前节点val放入cnt_res，递归当前节点左右子树，当前val pop，返回res。
+
