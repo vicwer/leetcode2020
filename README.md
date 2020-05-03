@@ -81,3 +81,25 @@
 
 初始化两个变量res和cnt_res；如果根节点空，返回res；如果根节点没有左右子树，若当前sum减成0，则将当前val送入cnt_res，并将cnt_res放入res，然后当前val pop，返回res；否则，当前节点val放入cnt_res，递归当前节点左右子树，当前val pop，返回res。
 
+### 二叉树展开为链表
+
+> [leetcode104](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
+
+#### 解题思路
+
+在还没操作节点右子树前，不能破坏该节点的右子树指向。所以采用后序遍历。先把右子树和左子树展开为链表，右子树赋上一次保存的最后的节点，左子树置空，最后保存的节点改为当前根节点。
+
+### 从前序与中序遍历序列构造二叉树
+
+> [leetcode105](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+#### 解题思路
+
+前序中左起第一位1肯定是根结点，我们可以据此找到中序中根结点的位置rootin；
+中序中根结点左边就是左子树结点，右边就是右子树结点，即[左子树结点，根结点，右子树结点]，我们就可以得出左子树结点个数为int left = rootin - leftin;；
+前序中结点分布应该是：[根结点，左子树结点，右子树结点]；
+根据前一步确定的左子树个数，可以确定前序中左子树结点和右子树结点的范围；
+如果我们要前序遍历生成二叉树的话，下一层递归应该是：
+左子树：root->left = pre_order(前序左子树范围，中序左子树范围，前序序列，中序序列);；
+右子树：root->right = pre_order(前序右子树范围，中序右子树范围，前序序列，中序序列);。
+每一层递归都要返回当前根结点root；
