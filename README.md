@@ -103,3 +103,11 @@
 左子树：root->left = pre_order(前序左子树范围，中序左子树范围，前序序列，中序序列);；
 右子树：root->right = pre_order(前序右子树范围，中序右子树范围，前序序列，中序序列);。
 每一层递归都要返回当前根结点root；
+
+### 从中序与后序遍历序列构造二叉树
+
+> [leetcode106](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+
+#### 解题思路
+
+解题思路与题105相同。
