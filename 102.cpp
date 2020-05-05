@@ -38,6 +38,39 @@ std::vector<int> func(BinaryTree* root)
     return res;
 }
 
+std::vector<std::vector<int>> levelOrder(BinaryTree* root)
+{
+    std::vector<std::vector<int>> res;
+    if(!root)
+        return res;
+
+    std::queue<BinaryTree*> cnt_layer;
+    cnt_layer.push(root);
+    while(!cnt_layer.empty())
+    {
+        std::vector<int> cnt_res;
+        int size = cnt_layer.size();
+        for(int i = 0; i < size; i++)
+        {
+            BinaryTree* cnt_root = cnt_layer.front();
+            cnt_layer.pop();
+            cnt_res.push_back(cnt_root->val);
+            if(cnt_root->left)
+            {
+                cnt_layer.push(cnt_root->left);
+            }
+            if(cnt_root->right)
+            {
+                cnt_layer.push(cnt_root->right);
+            }
+        }
+        if(!cnt_res.empty())
+            res.push_back(cnt_res);
+    }
+
+    return res;
+}
+
 class CreateTree {
 public:
     BinaryTree* createTree(std::vector<int> list);
