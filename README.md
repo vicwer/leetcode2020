@@ -117,3 +117,11 @@
 > [leetcode107](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
 
 解题思路与题102相同。
+
+### 平衡二叉树
+
+> [leetcode110](https://leetcode-cn.com/problems/balanced-binary-tree/)
+
+#### 解题思路
+
+一棵高度平衡二叉树定义为：一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。所以，由定义，若根节点空，则是平衡二叉树，返回true；若根节点左右子树的深度差的绝对值大于1，则返回false，递归判断根节点的左右子树是不是都是平衡二叉树。关于求树的最大深度，若根节点空，则返回0，否则返回左右子树的最大深度+1.
