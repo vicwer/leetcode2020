@@ -47,7 +47,7 @@
 
 > [leetcode102](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 
-用队列，先将根节点入队，然后遍历队列是否非空，非空则遍历当前节点值，出队，然后判断左右子树是否存在，存在则入队。
+用队列，先将根节点入队，然后遍历队列是否非空，非空则根据当前队列的size，遍历队列中节点，出队，然后判断左右子树是否存在，存在则入队，并将当前root->val存入vector。
 
 ### 二叉树的锯齿形层次遍历
 
@@ -111,3 +111,9 @@
 #### 解题思路
 
 解题思路与题105相同。
+
+### 二叉树的层次遍历II
+
+> [leetcode107](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+
+解题思路与题102相同。
