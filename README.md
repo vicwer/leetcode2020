@@ -133,3 +133,11 @@
 #### 解题思路
 
 层次遍历，当遍历当前节点时，遍历完pop，如果队列中还有当前层的节点，则让当前节点的next指向队列中的当前节点。若当前节点有左右子树，则入队。
+
+### 填充每个节点的下一个右侧节点指针II
+
+> [leetcode117](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/)
+
+#### 解题思路
+
+同116.
