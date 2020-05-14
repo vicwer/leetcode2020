@@ -23,9 +23,9 @@ int maxDepth(TreeNode* root)
 
 std::string serialize(TreeNode* root)
 {
-    std::string res = "";
+    std::stringstream res = "";
     if(!root)
-        return res;
+        return res.str();
 
     int depth = maxDepth(root);
 
@@ -44,12 +44,15 @@ std::string serialize(TreeNode* root)
             cnt_layer.pop();
             if(!cnt_root)
             {
-                res = res + "#,";
+                // res = res + "#,";
+                res << "#,";
                 continue;
             }
             else
             {
-                res = res + std::to_string(cnt_root->val)+",";
+                // res = res + std::to_string(cnt_root->val)+",";
+                res << cnt_root->val;
+                res << ",";
                 if(cnt_depth < depth)
                 {
                     cnt_layer.push(cnt_root->left);
@@ -58,10 +61,12 @@ std::string serialize(TreeNode* root)
             }
         }
     }
-    res.pop_back();
-    res = "[" + res + "]";
 
-    return res;
+    std::string ret = res.str();
+    ret.pop_back();
+    ret = "[" + ret + "]";
+
+    return ret;
 }
 
 std::vector<std::string> split(std::string data)
