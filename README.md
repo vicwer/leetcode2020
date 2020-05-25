@@ -150,8 +150,52 @@
 
 使用先序遍历的方法递归遍历，若根节点空，则返回0；若当前节点时叶子节点，则当前节点10加上一层传递的值；递归根节点左右子树并将其求和。
 
-### 前序遍历
+### 二叉树的前序遍历
 
 > [leetcode144](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
 
-若根节点空，返回；根节点非空，先遍历根节点，递归遍历根节点的左子树和右子树。
+#### 解题思路
+
+若根节点空，返回；根节点非空，先访问根节点，递归遍历根节点的左子树和右子树。
+
+### 二叉树的后序遍历
+
+> [leetcode145](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
+
+#### 解题思路
+
+若根节点空，返回；根节点非空，先遍历根节点的左子树和右子树，然后访问根节点。
+
+### 二叉树的右视图
+
+> [leetcode199](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
+
+#### 解题思路
+
+层次遍历二叉树，保存每层最右边的节点。
+
+### 完全二叉树的节点个数
+
+> [leetcode222](https://leetcode-cn.com/problems/count-complete-tree-nodes/)
+
+#### 解题思路
+
+完全二叉树概念：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2\*\*h个节点。
+
+先求出树深度；求左右子树深度，若左子树深度==右子树深度，则最后一个节点在右子树上，所以左子树是满二叉树，则节点个数是1<<(left_depth)-1+root->right+1;若左子树深度！=右子树深度，则最后一个节点在左子树上，则右子树是满二叉树，则节点个数是1<<(right_depth)-1+root->left+1。
+
+### 翻转二叉树
+
+> [leetcode226](https://leetcode-cn.com/problems/invert-binary-tree/)
+
+#### 解题思路
+
+若根节点空，返回NULL；交换root的左右子节点，递归翻转root的左右子树。
+
+### 二叉树的最近公共祖先
+
+> [leetcode236](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+### 解题思路
+
+待续...
