@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <limits.h>
 
 std::vector<int> sorted(std::vector<int> vec)
 {
-    int target_num = (int)((vec.size()/2)) > 5 ? 5 : (int)((vec.size()/2)) * 2 + 1;
-    std::vector<int> res(vec.size(), 0);
+    int target_num = (int)(vec.size()/2) > 5 ? 11 : (int)(vec.size()/2) * 2 + 1;
+    std::vector<int> res(vec.size(), INT_MAX);
     int count = 1;
     std::vector<int> idx;
     for(int i = 0; i < vec.size(); i++)
@@ -26,24 +27,34 @@ std::vector<int> sorted(std::vector<int> vec)
         }
     }
 
-    for(int i = idx.size()-1; i >= 0; i--)
-    {
-        vec.erase(vec.begin()+idx[i]);
-    }
-
     count = 0;
     for(int i = 0; i < vec.size(); i++)
     {
-        res[i+count] = vec[i];
-        if(i < idx.size())
-            count += 1;
+        int flag = 0;
+        for(int j = 0; j < idx.size(); j++)
+        {
+            if(i == idx[j])
+            {
+                flag = 1;
+            }
+        }
+        if(flag)
+            continue;
+        
+        if(res[count] == INT_MAX)
+            res[count++] = vec[i];
+        else
+        {
+            i--;
+            count++;
+        }
     }
     return res;
 }
 
 int main()
 {
-    std::vector<int> vec = {2,4,6,8,10,1,3,5,7,9};
+    std::vector<int> vec = {2,4,11,13,6,8,10,1,3,5,7,9};
     for(int i = 0; i < vec.size(); i++)
         std::cout << vec[i] << " ";
     std::cout << std::endl;
