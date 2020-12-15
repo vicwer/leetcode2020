@@ -10,27 +10,13 @@ std::vector<int> sorted(std::vector<int> vec)
     std::vector<int> idx;
     for(int i = 0; i < vec.size(); i++)
     {
-        if(count < target_num)
+        if(vec[i] % 2 == 0 && count < target_num && i >= count)
         {
-            if(vec[i] % 2 == 0)
-            {
-                if(i < count)
-                {
-                    idx.push_back(i);
-                    continue;
-                }
-                res[count] = vec[i];
-                count += 2;
-            }
-            else
-            {
-                idx.push_back(i);
-            }
+            res[count] = vec[i];
+            count += 2;
+            continue;
         }
-        else
-        {
-            idx.push_back(i);
-        }
+        idx.push_back(i);
     }
 
     count = 0;
