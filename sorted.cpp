@@ -15,34 +15,29 @@ std::vector<int> sorted(std::vector<int> vec)
             if(vec[i] % 2 == 0)
             {
                 if(i < count)
+                {
+                    idx.push_back(i);
                     continue;
+                }
                 res[count] = vec[i];
-                idx.push_back(i);
                 count += 2;
+            }
+            else
+            {
+                idx.push_back(i);
             }
         }
         else
         {
-            break;
+            idx.push_back(i);
         }
     }
 
     count = 0;
-    for(int i = 0; i < vec.size(); i++)
+    for(int i = 0; i < idx.size(); i++)
     {
-        int flag = 0;
-        for(int j = 0; j < idx.size(); j++)
-        {
-            if(i == idx[j])
-            {
-                flag = 1;
-            }
-        }
-        if(flag)
-            continue;
-        
         if(res[count] == INT_MAX)
-            res[count++] = vec[i];
+            res[count++] = vec[idx[i]];
         else
         {
             i--;
